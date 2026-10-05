@@ -88,10 +88,9 @@ animation.
 - Homogeneous transformations
 - Numerical simulation
 - 3D rendering
-## Demo
 
-[▶ Watch simulation video](Asteroid_Impact_Simulation/toutatis_animation.mp4)
-## Academic Context
+
+
 
 Developed as part of university coursework involving rigid-body
 dynamics, geometric transformations and computer graphics.
