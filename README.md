@@ -76,12 +76,7 @@ POV-Ray reads this matrix and applies it to the asteroid model:
 The resulting frames are rendered sequentially to produce the final
 animation.
 
-## Preview
 
-<p align="center">
-  <img src="before.png" width="45%">
-  <img src="after1.png" width="45%">
-</p>
 
 ## Concepts Demonstrated
 
@@ -95,7 +90,7 @@ animation.
 - 3D rendering
 ## Demo
 
-[▶ Watch simulation video](Asteroid Impact Simulation/toutatis_animation.mp4)
+[▶ Watch simulation video](Asteroid_Impact_Simulation/toutatis_animation.mp4)
 ## Academic Context
 
 Developed as part of university coursework involving rigid-body
