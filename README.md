@@ -75,8 +75,8 @@ POV-Ray reads this matrix and applies it to the asteroid model:
 
 The resulting frames are rendered sequentially to produce the final
 animation.
-
-
+## Demo
+[▶ Watch the asteroid impact animation](Asteroid%20Impact%20Simulation/toutatis_animation.mp4)
 
 ## Concepts Demonstrated
 
