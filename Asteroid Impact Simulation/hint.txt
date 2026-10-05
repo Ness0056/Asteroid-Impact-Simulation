@@ -1,0 +1,1 @@
+for i in $(seq 0 1 5) ; do echo $i | ./a.out ; mv $(echo "output.dat") $(echo "output"$i".dat"); done

@@ -1,0 +1,127 @@
+      Detailed validation data for the asteroid lab
+
+===============================================================
+Note: the magnitudes with a subindex 0, such as L_0, are meant to
+be expressed in the Base or Universal Reference frame (static, at
+rest, taken as the t=0 asteroid reference frame with origin at its
+center of mass). The magnitudes with a subindex s (self) such as
+L_s or w_s are meant to be expressed in the (time varying) reference
+frame attached to the asteroid at time t.
+
+The calculations shown here have been computed with a time step
+dt = 1.0 . This value is suitable for this check, but the real
+calculations once your code is working correctly should be smaller,
+such as  dt = 0.25.
+
+The inertia matrix inertia for the asteroid is defined in the code
+'before.pov'. You will find there also the mass values of the two 
+bodies and the velocity of the incoming meteorite which is going
+to hit the asteroid.
+
+The calculation of the total momentum P before the impact is
+simply P = Sum [m_i vi ] and it has only a contribution from the
+incoming meteorite particle, since the (much bigger) asteroid 
+is at rest. After the collision, the total momentum P has not
+changed, and since we can write   P = M Vcm (as after the col.
+lision we have only one body), we can easily calculate the  
+velocity of the center of mass Vcm.
+
+A similar approach allows as to compute L, the total angular 
+momentum. Before the impact, we can compute can compute it in
+the 0 or Lab reference system at rest:  L = Sum [m_i ri x vi ],
+and it has again only a contribution from the incoming meteorite 
+particle. After the collision, the total angular momentum L 
+has not changed, since in a collision all forces are internal,
+and it will conserve its value forever. 
+
+However, in order to relate its value to the angular velocity w,
+we will need to work in the "self" reference frame attached to 
+the asteroid {S} at its center of mass, which is now at motion
+and rotating. Interestingly, all physical vectors as P or L 
+transform between different reference frames in the 3-component
+form: 
+
+               A     A     B
+                L =   R  .  L
+                     B 
+
+with R being the 3x3 rotation matrix between the systems A and B:
+
+                     A      
+                      R        
+                     B 
+              {A}   ---->   {B}
+
+This allows us to relate the value of L in the 0 ref. frame to
+its value in the "self" CM system, where we have the unique 
+expression 
+
+                    L  = (inertia matrix) . w     
+
+with the inertia matrix being constant (see also the notes guide.ps)
+
+===============================================================
+At t = 0 we find, immediately after impact:
+
+ Vcm =    -0.0118306, -0.0003944, -0.00423272       ! CM Velocity
+ L_0 =    -0.0014815, -0.0147484,  0.0055149        ! Angular momentum
+
+
+Angular momentum, expressed in the "self "reference frame attached to the 
+asteroid {S}:
+
+ L_s =     -0.0014815, -0.0147484,  0.0055149  
+
+since  L_s = R^-1 L_0  (and at t=0 we have  R = 3x3 identity):
+
+
+
+
+ Angular velocity:
+
+ w_s =      -0.00215961, -0.0203146, 0.0258915
+
+ since     L = I w  ==>  w_s = (I)^-1 L_s:
+
+
+For test purposes only  (once your code is valid, use a 
+smaller time step dt for the actual calculations)
+
+===============================================================
+
+ Transformation matrix at t = 0 (expressed as columns of three
+ elements each):
+
+ 1st column:    1.0000,    0.0000,    0.0000,     
+
+ 2nd column:    0.0000,    1.0000,    0.0000,  
+
+ 3rd column:    0.0000,    0.0000,    1.0000,  
+
+ 4th column:    0.0000,    0.0000,    0.0000
+
+===============================================================
+
+ Transformation matrix at t = 1 (one iteration, time step dt = 1.0):
+
+ 1st column:    0.999459,  0.025883, 0.020297,     Notice: *first column* !!!
+
+ 2nd column:   -0.025833,  0.999663, -0.00268, 
+
+ 3rd column:   -0.020359,  0.002159, 0.999790,
+
+ 4th column:   -0.011831, -0.000394, -0.00423
+
+===============================================================
+
+ Transformation matrix at t = 2 (two iterations, time step dt = 1.0):
+
+ 1st column:    0.997839,  0.051779,  0.040463, 
+
+ 2nd column:   -0.051566,  0.998650, -0.006284,
+
+ 3rd column:   -0.040734,  0.004184,  0.999161,
+
+ 4th column:   -0.023661, -0.000789, -0.008465
+
+===============================================================

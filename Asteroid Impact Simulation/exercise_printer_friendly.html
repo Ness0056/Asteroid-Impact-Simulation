@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+
+
+
+
+
+
+
+
+
+
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.77 [en] (X11; U; Linux 2.4.22-10mdk i686) [Netscape]"><title>secsave</title></head><body>
+
+<center>
+<h3>
+<b>Collision asteroid-meteorite</b></h3></center>
+
+<p>&nbsp;
+<br>&nbsp;
+<br>
+<br>
+<br>
+</p><p>&nbsp;<br>&nbsp;
+<br>&nbsp;
+</p><p>The aim of this exercise is to generate the animation of the
+movement of an asteroid after the collision with a small meteorite. The
+data regarding the geometry of the asteroid (Toutatis) is contained as
+a triangular mesh in the file
+<i>toutatis.inc</i>.
+which is read by the povray test code&nbsp; <i>prova.pov.<br>
+</i></p><p>The sequence of the collision animation will be achieved by means of two distinct povray codes: <i>before.pov</i>&nbsp;
+(containing the scene description before the collision takes place,
+where the asteroid is at rest, and containing also data regarding the
+meteorite trajectory) and <i>after.pov</i> ,
+in which the movement of asteroid Toutatis as a function of time is read from the file <i>transforma.dat</i>,
+which for successive frames should contain updated values of the
+homogeneous transformation matrix elements, describing Toutatis
+position and orientation at successive time steps.<br>
+<br>
+For this lab session you need therefore:<br>
+
+</p><p>1) Generate the sequence previous to the collision&nbsp; ( <i>- 3&nbsp; &lt;&nbsp;&nbsp; t&nbsp;&nbsp; &lt;&nbsp;&nbsp; 0&nbsp;</i>
+), using the file&nbsp; <i>before.pov</i> (some 25 images). You just need to prepare a suitable initialization file <i>before.ini</i> and render it. The names of the images generated will look similar to <i>before*.png <br>
+</i></p><p>2) Compute, from the data of the small meteorite making impact (data contained in the file <i>before.pov</i>, the total linear momentum&nbsp; <b>P</b> and total angular momentum <b>L</b> of the whole system. From the linear momentum&nbsp; <b>P</b> (which is conserved in a collision) find the CM (Center of Mass) velocity of the asteroid
+(with the small meteorite inside it) after the collision.
+</p><p>3) In order to generate the images displaying the scene after
+the collision, derive an algorithm and write a code implementing it,
+which will compute for successive time steps the homogeneous matrix T
+for the position and orientation of Toutatis and overwrites the result
+in the file <i>transforma.dat.</i> (As test cases, you have the values corresponding to the homogeneous matrices at <i>t=0 , t=1 and t=2, </i>in the files<i>
+transforma0.dat</i>,&nbsp; <i>transforma1.dat</i> and <i>transforma2.dat</i>, respectivley). You have a guide&nbsp; regarding how to update the homogeneous matrix T in the documents <i>guide.ps</i>&nbsp; and <i>guide2.ps</i>.
+</p>
+<p>4) Make a short discussion regarding the time step used (do you
+obtain similar results with half the time step and double number of
+frames?)&nbsp;&nbsp; Note: you don't need to renderize the images for this study,
+just discuss the transformation matrix obtained T(t).<br>
+</p>
+
+<p>5) Executing your code (which updates the state of the system
+for a time interval dt) and rendering the image in a loop, generate the
+sequence of images corresponding to the movement after the impact ( t
+&gt; 0 ) (some 250 (?)&nbsp; images). Finally convert the full sequence to an mpg
+file. A command line similar to <i><br>
+convert&nbsp; before*.png after*.png&nbsp; name.mpg </i>&nbsp; will do the job. You could also rename both sets <i> before*.png and after*.png&nbsp;</i> to a single set&nbsp; like&nbsp; <i>full_sequence*.png</i>&nbsp; and convert it to an animated sequence. </p>
+</body></html>
